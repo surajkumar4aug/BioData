@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Items</title>
+</head>
+<body>
+    <h1>Items</h1>
+    <ul>
+        {{items}}
+        {% for item in items %}
+        <li>{{ item.email }} {{ item.password }} </li>
+        {% empty %}
+        <li>No items found.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
