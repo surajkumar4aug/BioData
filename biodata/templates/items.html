@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+
+  
+    <title>Marriage Biodata - {{ marriage_biodata.name }}</title>
+    <style>
+
+:root {
+	--skintone-color: #DE9B72;
+	--dark-color: #3A3D3E;
+}
+
+.main {
+    height: 100%;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+}
+
+
+.body {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-size: 140%!important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+}
+
+@media (min-width: 992px) {
+	.body {
+	    background-size: 148vh!important;
+	    background-repeat: no-repeat !important;
+	    background-position: 50% -31vh!important;
+	}
+}
+
+.row {
+	margin-right: 0;
+    margin-left: 0;
+}
+
+.social-row {
+	display: flex;
+    flex-direction: column;
+    right: 0;
+    position: absolute;
+}
+
+@media (min-width: 768px) {
+	.social-row {
+		position: relative;
+	  	flex-direction: row;
+	  	justify-content: flex-end;
+	}
+}
+
+.social-row a {
+    width: 2em;
+    height: 2em;
+    background-repeat: no-repeat;
+    background-size: contain;
+   	padding: 1em 0;
+    z-index: 99;
+    margin-bottom: 1em;
+  	margin-right: 1em;
+}
+
+@media (min-width: 768px) {
+	.social-row a {
+	    width: 2.5em;
+  	  	height: 2.5em;
+	    padding: 1em 0;
+	    margin-bottom: 0;
+	}
+}
+
+@media (min-width: 1200px) {
+	.social-row a {
+	    width: 3em;
+	    height: 3em;
+	    padding: 0;
+	}
+}
+
+.countach {
+	font-family: countach,sans-serif;
+	font-weight: 400;
+	font-style: normal;
+}
+
+.tilda-petite {
+	font-family: tilda-petite,sans-serif;
+	font-weight: 400;
+	font-style: normal;
+}
+
+.montserrat {
+	font-family: montserrat, sans-serif;
+	font-weight: 300;
+	font-style: normal;
+}
+
+.skintone-text {
+	color: var(--skintone-color);
+}
+
+.dark-text {
+	color: var(--dark-color);
+}
+
+.white-text {
+	color: #fff;
+}
+
+a:hover {
+	color: #c2c2c2;
+}
+
+.dark-background {
+	background: var(--dark-color);
+}
+
+
+.logo {
+	width: 20vh;
+}
+
+@media (min-width: 768px) {
+	.logo {
+		width: 16em;
+	}
+}
+
+@media (min-width: 992px) {
+	.logo {
+		width: 18em;
+	}
+}
+
+@media (min-width: 1200px) {
+	.logo {
+	    width: 28vh;
+    	height: 28vh;
+	}
+}
+
+
+
+
+
+
+
+.lead {
+    font-size: 1.5rem;
+  	padding-top: 0.5em;
+}
+
+@media (min-width: 992px) {
+	.lead {
+	    font-size: 2rem;
+	    padding-top: 0.5em;
+	}
+}
+
+@media (min-width: 1200px) {
+	.lead {
+    	font-size: 2.5rem;
+		padding-top: 1em;
+	}
+}
+
+p.general {
+    font-size: 2.5vh;
+    margin-bottom: 0.5em;
+    line-height: 1.25em;
+}
+
+@media (min-width: 992px) {
+	p.general {
+		font-size: 1.25em;
+		 line-height: 1.5em;
+	}
+}
+
+@media (min-width: 1200px) {
+	p.general {
+	    font-size: 1.5em;
+	}
+}
+
+
+.inner-border {
+    
+    justify-content: center;
+    flex-direction: column;
+}
+
+.outer-border {
+	border: 2px solid #DE9B72;
+   	height: 99%;
+    width: 98%;
+    padding: 6px;
+    margin: 0 auto;
+}
+
+@media (min-width: 992px) {
+	.outer-border {
+		height: 94%;
+	}
+}
+
+.mid-border {
+    border: 6px solid #DE9B72;
+    
+    padding: 6px 6px;
+    margin: 3px 3px;
+}
+
+.inner-border {
+	position: relative;
+	border: 2px solid #DE9B72;
+    height: 100%;
+    margin: auto;
+}
+
+
+/* Decorations */
+.corner-decoration {
+	position: absolute;
+    width: 3em;
+    margin: -3px;
+}
+
+@media (min-width: 768px) {
+	.corner-decoration {
+		width: 3.5em;
+	  	margin: -4px;
+	}
+}
+
+@media (min-width: 992px) {
+	.corner-decoration {
+		width: 4em;
+	  	margin: -5px;
+	}
+}
+
+@media (min-width: 1200px) {
+	.corner-decoration {
+		width: 5em;
+	  	margin: -6px;
+	}
+}
+
+.corner-decoration.corner-left-top {
+	left: 0;
+    margin-left: -1px;
+    margin-top: -1px;
+	top: 0;
+}
+
+.corner-decoration.corner-right-top {
+	top: 0;
+
+	right: 0;
+    margin-right: -1px;
+    margin-top: -1px;
+	 -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+
+.corner-decoration.corner-right-bottom {
+	right: 0;
+	bottom: 0;
+    margin-right: -1px;
+    margin-bottom: -1px;
+	 -webkit-transform: scale(-1);
+  	transform: scale(-1);
+}
+
+.corner-decoration.corner-left-bottom {
+	left: 0;
+	bottom: 0;
+    margin-left: -1px;
+    margin-bottom: -1px;
+	-webkit-transform: scaleY(-1);
+  	transform: scaleY(-1);
+}
+
+
+.vertical-decoration {
+	position: absolute;
+	left: 0;
+	right: 0;
+	margin: auto;
+	width: 11em;
+}
+
+
+@media (min-width: 768px) {
+	.vertical-decoration {
+		width: 16em;
+	}
+}
+
+
+@media (min-width: 992px) {
+	.vertical-decoration {
+		width: 20em;
+	}
+}
+
+@media (min-width: 1200px) {
+	.vertical-decoration {
+		width: 27em;
+	}
+}
+
+.vertical-decoration.top {
+	top: 0;
+
+}
+
+.vertical-decoration.bottom {
+	bottom: 0;
+	-webkit-transform: scaleY(-1);
+  	transform: scaleY(-1);
+}
+
+
+
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 800px;
+            min-height: 1016px;
+            margin: 0px auto;
+            margin-bottom: 0px;
+            background-color: #f3d5d0;
+            padding: 20px;
+           
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        
+        .header {
+            text-align: center;
+            color: #d03c3c;
+            font-family: 'Lucida Calligraphy';
+            margin-top: 0;
+            font-size: 32px;
+            text-transform: uppercase;
+            margin-left: 186px;
+            margin-right: 180px;
+        }
+        
+        h2 {
+            color: #cf1d1d;
+            margin-top: 0;
+            font-size: 24px;
+            font-family: 'Lucida Calligraphy';
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        
+        p {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+        
+        .section {
+            margin-bottom: 30px;
+            margin-left: 2%;
+            border-bottom: 2px dashed #ff5c5c;
+            padding-bottom: 20px;
+        }
+        
+        .section:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        
+        .section-title {
+            font-weight: bold;
+            color: #a22323;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .section-content {
+            margin-left: 20px;
+            padding-left: 20px;
+            border-left: 2px solid #ff5c5c;
+        }
+        .borderhead {
+                margin: 10% 7%;
+               
+        }
+
+        .head img
+        {
+            height: 60px;
+        }
+        .head{
+            display: flex;
+        }
+        
+    </style>
+</head>
+<body>
+    <button id="download-btn">Download as PDF</button>
+    <div> <h1 >hero</h1></div>
+    {% load static %}
+   
+    <div class="container" id="test">
+       
+        
+            <div class="mid-border">
+               <div class="inner-border">
+                 <img class="corner-decoration corner-left-top" src="{% static 'corner-decoration-removebg-preview.png' %}"></img>
+                 <img class="corner-decoration corner-right-top" src="{% static 'corner-decoration-removebg-preview.png' %}"></img>
+                 <img class="corner-decoration corner-right-bottom" src="{% static 'corner-decoration-removebg-preview.png' %}"></img>
+                 <img class="corner-decoration corner-left-bottom"src="{% static 'corner-decoration-removebg-preview.png' %}" alt="Image">
+                 <img class="vertical-decoration top" src="{% static 'horizontally-centered-vertical-decoration.png' %}"></img>
+                 <img class="vertical-decoration bottom" src="{% static 'horizontally-centered-vertical-decoration.png' %}"></img>
+   
+
+
+        <div class="borderhead">
+        <div class="head">
+            <div>
+                <img class="" src="{% static 'fylfot.png' %}"></img>
+            </div> 
+            <div> 
+                <h2 class="header">Biodata</h2>
+            </div>
+            <div>
+                <img class="" src="{% static 'fylfot.png' %}"></img>
+            </div>
+        </div>
+        <div class="section">
+            <h2 class="section-title">Personal Information</h2>
+            <p class="section-content">
+                <strong>Name:</strong> <b>{{ marriage_biodata.name }}</b><br>
+                <strong>Date of Birth:</strong> {{ marriage_biodata.dob }}<br>
+                <strong>Gender:</strong> {{ marriage_biodata.gender }}<br>
+                <strong>Marital Status:</strong> {{ marriage_biodata.marital_status }}<br>
+                <strong>Caste:</strong> {{ marriage_biodata.caste }}<br>
+                <strong>Education:</strong> {{ marriage_biodata.education }}<br ><span id="edu_2" style="margin-left: 87px;">{{ marriage_biodata.education_2 }}</span ><br id="space_1"><span id="edu_3" style="margin-left: 87px;">{{ marriage_biodata.education_3 }}</span><br id="space_2">
+                <strong>Occupation:</strong> {{ marriage_biodata.occupation }}<br>
+                <strong>Height:</strong> {{ marriage_biodata.height }}<br>
+                <strong>Weight:</strong> {{ marriage_biodata.weight }}<br>
+                <strong>Hobbies:</strong> {{ marriage_biodata.hobbies }}<br>
+            </p>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title">Family Information</h2>
+            <p class="section-content">
+                <strong>Father's Name:</strong> {{ marriage_biodata.father_name }}<br>
+                <strong>Father's Occupation:</strong> {{ marriage_biodata.father_occupation }}<br>
+                <strong>Mother's Name:</strong> {{ marriage_biodata.mother_name }}<br>
+                <strong>Mother's Occupation:</strong> {{ marriage_biodata.mother_occupation }}<br>
+                <strong>Siblings:</strong> {{ marriage_biodata.siblings }}<br>
+                
+            </p>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title">Contact Information</h2>
+            <p class="section-content">
+                <strong>Address:</strong> {{ marriage_biodata.address }}<br>
+                <strong>City:</strong> {{ marriage_biodata.city }}<br>
+                <strong>State:</strong> {{ marriage_biodata.state }}<br>
+                <strong>Pincode:</strong> {{ marriage_biodata.pincode }}<br>
+                <strong>Phone:</strong> {{ marriage_biodata.phone }}<br>
+                <strong>Email:</strong> {{ marriage_biodata.email }}<br>
+                
+            </p>
+        </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+
+</body>
+    
+    <button id="download-btn">Download as PDF</button>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+    <script>
+        if(document.getElementById("edu_2").innerHTML=='')
+        {
+            document.getElementById("edu_2").remove();
+            document.getElementById("space_1").remove();
+        }
+        if(document.getElementById("edu_3").innerHTML=='')
+        {
+            document.getElementById("edu_3").remove();
+            document.getElementById("space_2").remove();
+        }
+        alert(document.getElementById("i").innerHTML)
+        document.getElementById("download-btn").addEventListener("click", function () {
+            const element = document.getElementById("test");
+            const opt = {
+                filename: 'output.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 4 },
+                jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+            };
+            
+            html2pdf().from(element).set(opt).save();
+        });
+    </script>
+</body>
+</html>
