@@ -37,14 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'blog',
     'biodata',
-    'customer',
-    'Stockinventory',
-    'rest_framework',
-    'rest_framework_swagger',
-    'drf_yasg',
-    'rest_framework_simplejwt'
+    'rest_framework'
     
 ]
 
