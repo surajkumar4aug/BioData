@@ -4,34 +4,80 @@
     <title>Marriage Biodata</title>
     <style>
         /* Your CSS styles */
+        *{
+            margin: 0px;
+        }
+    body{
+        background-color: darksalmon;
+        font-family: 'Times New Roman';
+    }
+    .container{
+            max-width: 800px;
+            min-height: 1016px;
+            margin: 0px auto;
+            margin-bottom: 0px;
+            background-color: #f3d5d0;
+            padding: 20px;
+           
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            box-shadow: 3px wheat;
+        
+    }
+    .section-title{
+        margin: 2% 1%;
+    }
+    .section-content{
+        
+    padding-left: 15%;
+    }
+    .section-content input{
+        width: 70%;
+        padding: 2% 1%;
+        border: brown 3px solid;
+        border-radius: 10px;
+        margin-bottom: 2px;
+    }
+    .main-header{
+        background-color: coral;
+        margin: 0%;
+        padding: 2% 3%;
+        margin-bottom: 1%;
+    }
     </style>
 </head>
 <body>
+    <div class="main-header">
+        <h1 style="padding-left: 35% ;">
+            <span class="header-symbol left">&#9504;</span>
+            Marriage Biodata
+            <span class="header-symbol right">&#9504;</span>
+        </h1>
+    </div>
     <div class="container">
         <form method="POST" action="/marriage/">
-            <h1>
-                <span class="header-symbol left">&#9504;</span>
-                Marriage Biodata
-                <span class="header-symbol right">&#9504;</span>
-            </h1>
+            <h2 style="padding-left: 35%;margin-bottom: 2%;">
+                
+                Registration Form
+                
+            </h2>
             
             <div class="section">
                 <h2 class="section-title">Personal Information</h2>
                 <p class="section-content">
                     <input type="text" placeholder="Name" id="name" name="name"><br>
-                    <input type="number" placeholder="Age" id="age" name="age"><br>
-                    <input type="text" placeholder="Date of Birth" id="dob" name="dob"><br>
+                    <input type="date" placeholder="Date of Birth" id="dob" name="dob"><br>
                     <input type="text" placeholder="Gender" id="gender" name="gender"><br>
                     <input type="text" placeholder="Marital Status" id="maritalStatus" name="marital_status"><br>
                     <input type="text" placeholder="Religion" id="religion" name="religion"><br>
                     <input type="text" placeholder="Caste" id="caste" name="caste"><br>
-                    <input type="text" placeholder="Education" id="education" name="education"><br>
-                    <input type="text" placeholder="Education" id="education" name="education_2"><br>
-                    <input type="text" placeholder="Education" id="education" name="education_3"><br>
+                    <input type="text" placeholder="Secondary Schooling" id="education" name="education"><br>
+                    <input type="text" placeholder="High Schooling" id="education" name="education_2"><br>
+                    <input type="text" placeholder="Under Graduate" id="education" name="education_3"><br>
+                    <input type="text" placeholder="Post Graduate" id="education" name="education_4"><br>
                     <input type="text" placeholder="Occupation" id="occupation" name="occupation"><br>
                     <input type="text" placeholder="Height" id="height" name="height"><br>
                     <input type="text" placeholder="Weight" id="weight" name="weight"><br>
-                    <input type="text" placeholder="Complexion" id="complexion" name="complexion"><br>
                     <input type="text" placeholder="Languages Known" id="languagesKnown" name="languages_known"><br>
                     <input type="text" placeholder="Hobbies" id="hobbies" name="hobbies"><br>
                 </p>
@@ -55,14 +101,13 @@
                     <input type="text" placeholder="Address" id="address" name="address"><br>
                     <input type="text" placeholder="City" id="city" name="city"><br>
                     <input type="text" placeholder="State" id="state" name="state"><br>
-                    <input type="text" placeholder="Pincode" id="pincode" name="pincode"><br>
-                    <input type="text" placeholder="Phone" id="phone" name="phone"><br>
+                    <input type="number" placeholder="Pincode" id="pincode" name="pincode"><br>
+                    <input type="number" placeholder="Phone" id="phone" name="phone"><br>
                     <input type="email" placeholder="Email" id="email" name="email"><br>
-                    <input type="text" placeholder="Website" id="website" name="website"><br>
                 </p>
             </div>
             
-            <input type="submit" value="Submit">
+            <input style="margin-left: 40%;margin-top: 2%; background-color: aqua; border: 2px rgb(45, 8, 30) solid;border-radius: 5px; padding: 1% 2%;" type="submit" value="Submit">
         </form>
     </div>
 </body>
