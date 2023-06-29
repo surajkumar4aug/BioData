@@ -1,6 +1,6 @@
 from django.urls import include, path
 from rest_framework import routers
-from .views import MarriageBiodataViewSet, html_file_view, MarriageBiodataAPIView,home
+from .views import MarriageBiodataViewSet, html_file_view, MarriageBiodataAPIView
 
 router = routers.DefaultRouter()
 router.register(r'marriage-biodata', MarriageBiodataViewSet)
