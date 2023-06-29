@@ -2,7 +2,6 @@ from django.db import models
 
 class MarriageBiodata(models.Model):
     name = models.CharField(max_length=100)
-    age = models.IntegerField()
     dob = models.DateField()
     gender = models.CharField(max_length=10)
     marital_status = models.CharField(max_length=20)
@@ -11,10 +10,10 @@ class MarriageBiodata(models.Model):
     education = models.CharField(max_length=100)
     education_2 = models.CharField(max_length=100)
     education_3 = models.CharField(max_length=100)
+    education_4 = models.CharField(max_length=100)
     occupation = models.CharField(max_length=100)
     height = models.CharField(max_length=10)
     weight = models.CharField(max_length=10)
-    complexion = models.CharField(max_length=50)
     languages_known = models.CharField(max_length=100)
     hobbies = models.CharField(max_length=200)
     father_name = models.CharField(max_length=100)
@@ -29,7 +28,6 @@ class MarriageBiodata(models.Model):
     pincode = models.CharField(max_length=10)
     phone = models.CharField(max_length=20)
     email = models.EmailField()
-    website = models.URLField()
 
     def __str__(self):
         return self.name
