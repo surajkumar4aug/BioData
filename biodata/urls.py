@@ -6,7 +6,7 @@ router = routers.DefaultRouter()
 router.register(r'marriage-biodata', MarriageBiodataViewSet)
 
 urlpatterns = [
-    path('api/', include(router.urls)),
+    #path('api/', include(router.urls)),
     #path('', home, name='html_file'),
     path('', html_file_view, name='html_file'),
     path('marriage/', MarriageBiodataAPIView.as_view(), name='html_file'),
