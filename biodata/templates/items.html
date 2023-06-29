@@ -555,6 +555,7 @@
     }
     console.log(document.getElementsByClassName("weight").innerHTML == '')
     v= "{{ marriage_biodata.weight }}"
+    pdf_name= "{{ marriage_biodata.name }}.pdf"
     console.log(v)
     if ( v == '') {
         document.getElementById("weight").remove();
@@ -585,13 +586,15 @@
     document.getElementById("download-btn").addEventListener("click", function () {
         const element = document.getElementById("test");
         const opt = {
-            filename: 'output.pdf',
+            filename: pdf_name,
             image: {
                 type: 'jpeg',
                 quality: 0.98
             },
             html2canvas: {
-                scale: 2
+                scale: 2,
+                useCors:true,
+                allowTaint: true
             },
             jsPDF: {
                 unit: 'cm',
