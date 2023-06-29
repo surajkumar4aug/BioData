@@ -19,6 +19,6 @@ class MarriageBiodataAPIView(APIView):
             # Save the data or perform any other operations
             return render(request,'items.html',{"marriage_biodata":serializer.data})
         print(serializer.errors)
-        return HttpResponseRedirect('/html-file') 
+        return HttpResponseRedirect('/') 
 def html_file_view(request):
     return render(request, 'biodataform.html')
