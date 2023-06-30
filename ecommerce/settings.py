@@ -83,7 +83,7 @@ WSGI_APPLICATION = 'ecommerce.wsgi.application'
 #         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
-# import dj_database_url
+import dj_database_url
 DATABASES = {
     'default': dj_database_url.parse('postgres://biodata_user:4QprnkA4M0gRBU4xy3G4uIZdLWYiz9U4@dpg-cif66dh5rnujc4pebbv0-a.oregon-postgres.render.com/biodata'
     )
