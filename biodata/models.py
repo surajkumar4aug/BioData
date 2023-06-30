@@ -10,7 +10,7 @@ class MarriageBiodata(models.Model):
     education = models.CharField(max_length=100)
     education_2 = models.CharField(max_length=100)
     education_3 = models.CharField(max_length=100)
-    #education_4 = models.CharField(max_length=100)
+    education_4 = models.CharField(max_length=100)
     occupation = models.CharField(max_length=100)
     height = models.CharField(max_length=10)
     weight = models.CharField(max_length=10)
